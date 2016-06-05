@@ -2,8 +2,8 @@
 ProactiveComputerSecurity
 
 ###Idéer til demoer
-*En hjemmeside hvor vi kan teste valide usernames.
-*Hjemmeside der indeholder en kurv og ting man kan putte i kurven. Test af hvor mange ting der er i kurven.
+* En hjemmeside hvor vi kan teste valide usernames.
+* Hjemmeside der indeholder en kurv og ting man kan putte i kurven. Test af hvor mange ting der er i kurven.
 
 * Web application architecture, Direct timing attacks - Patrick
 * Cross-site timing attacks
