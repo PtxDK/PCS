@@ -7,7 +7,7 @@ ProactiveComputerSecurity
 
 * Web application architecture, Direct timing attacks - Patrick
 * Cross-site timing attacks
-    Browser timing techniques - Mads
-    Why cross-site timing is harder than direct - Mads
+    * Browser timing techniques - Mads
+    * Why cross-site timing is harder than direct - Mads
 * Testing for boolean values - Gram
 * Estimating the size of hidden data - Emil
