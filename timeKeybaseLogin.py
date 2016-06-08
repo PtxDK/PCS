@@ -1,21 +1,29 @@
+
 import requests
 
 
-headers = {'user-agent': 'my-app/0.0.1',
-           "Accept-Encoding":"gzip, deflate, br",
-           "Accept":"*/*",
-           "Accept-Language":"en-US,en;q=0.8,da;q=0.6",
-           "Connection":"keep-alive",
-           "Content-Type":"application/x-www-form-urlencoded; charset=UTF-8",
-           "Host":"keybase.io",
-           "Origin":"https://keybase.io",
-           "X-Requested-With":"XMLHttpRequest",
-           "DNT":"1",
-           "Referer":"https://keybase.io/verify",
-          }
+timeValuesBadLen = []
+timeValuesGoodLen = []
 
-r = requests.get("https://keybase.io/_/api/1.0/login.json",
-                 headers=headers )
+values = {'username': 'user',
+          'password': 'kun1point'}
 
-print r.elapsed
-print r.status_code
+
+for i in xrange(100):
+  r = requests.post("http://127.0.0.1:5000/login", data=values)
+  if r.status_code == 200:
+    #print r.elapsed
+    timeValuesBadLen.append(r.elapsed.total_seconds())
+
+print "Time with to short password: {0}".format( sum(timeValuesBadLen)/len(timeValuesBadLen))
+
+values = {'username': 'user',
+          'password': 'we just need a very long string, that shows that a difference comes in time!'}
+
+for i in xrange(100):
+  r = requests.post("http://127.0.0.1:5000/login", data=values)
+  if r.status_code == 200:
+    #print r.elapsed
+    timeValuesGoodLen.append(r.elapsed.total_seconds())
+
+print "Time with correct length password: {0}".format( sum(timeValuesGoodLen)/len(timeValuesGoodLen))
