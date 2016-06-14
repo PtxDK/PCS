@@ -1,0 +1,46 @@
+<html>
+
+
+<body>
+
+<button onclick="c1()">The time is?</button>
+
+<img id="test" style="display: none">
+
+<p id="arrayHere"></p>
+
+<script>
+	var timeArray = [];
+    var temp = [];
+    var x = 30;
+
+	function loop(i){
+        if (i <= x) {
+            var end;
+            var test = document.getElementById('test');
+			var start = new Date();
+			test.onerror = function() {
+				end = new Date();
+                var time = end-start;
+				timeArray.push(time);
+                document.getElementById("arrayHere").innerHTML = document.getElementById("arrayHere").innerHTML + (end-start) + " ";
+                loop(i+1);
+			}
+            test.src = "http://www.gmail.com";
+            //test.src = "http://www.facebook.dk";
+        }
+	}
+
+
+	function c1(){
+        var i = 1;
+        loop(i);
+        var numbers = timeArray.toString();
+//		document.getElementById("arrayHere").innerHTML = numbers + " ";
+	}
+
+
+</script>
+
+</body>
+</html>
